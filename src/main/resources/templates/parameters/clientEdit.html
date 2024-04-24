@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+    <!-- General Form Elements -->
+    <div class="container" style="width: 70%">
+
+
+    <header >
+        <h3 align="center">Editing Client Record</h3>
+    </header>
+    <form th:action="@{/parameters/clients}" method="post">
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input name="name" th:value="${client.name}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+                <input name="city" th:value="${client.city}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+                <input name="address" th:value="${client.address}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Mobile</label>
+            <div class="col-sm-10">
+                <input name="mobile" th:value="${client.mobile}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Website</label>
+            <div class="col-sm-10">
+                <input name="website" th:value="${client.website}" type="text" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-success">Save</button>
+                <a href="/parameters/clients" class="btn btn-warning">Exit</a>
+            </div>
+        </div>
+
+    </form><!-- End General Form Elements -->
+    </div>
+</div>
+
+</body>
+</html>

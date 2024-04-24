@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+    <!-- General Form Elements -->
+    <div class="container" style="width: 70%">
+
+
+    <header >
+        <h3 align="center">Editing Country Record</h3>
+    </header>
+    <form th:action="@{'/countries/update/'+${country.id}}" method="put">
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input name="description" th:value="${country.description}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Capital</label>
+            <div class="col-sm-10">
+                <input name="capital" th:value="${country.capital}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Nationality</label>
+            <div class="col-sm-10">
+                <input name="nationality" th:value="${country.nationality}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Continent</label>
+            <div class="col-sm-10">
+                <input name="continent" th:value="${country.continent}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Country Code</label>
+            <div class="col-sm-10">
+                <input name="code" th:value="${country.code}" type="text" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-success">Save</button>
+                <a href="/countries" class="btn btn-warning">Exit</a>
+            </div>
+        </div>
+
+    </form><!-- End General Form Elements -->
+    </div>
+</div>
+
+</body>
+</html>

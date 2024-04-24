@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+    <!-- General Form Elements -->
+    <div class="container" style="width: 70%">
+
+
+    <header >
+        <h3 align="center">Editing Location Record</h3>
+    </header>
+    <form th:action="@{/parameters/locations}" method="post">
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input name="description" th:value="${location.description}" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Details</label>
+            <div class="col-sm-10">
+                <input name="detail" th:value="${location.details}" type="text" class="form-control">
+            </div>
+        </div>
+
+
+
+        <div class="row mb-3">
+
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-success">Save</button>
+                <a href="/parameters/locations" class="btn btn-warning">Exit</a>
+            </div>
+        </div>
+
+    </form><!-- End General Form Elements -->
+    </div>
+</div>
+
+</body>
+</html>

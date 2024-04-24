@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+    <!-- General Form Elements -->
+    <div class="container" style="width: 70%">
+
+
+    <header >
+        <h3 align="center">Editing Country Record</h3>
+    </header>
+    <form  method="put">
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input name="description" th:value="${country.description}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Capital</label>
+            <div class="col-sm-10">
+                <input name="capital" th:value="${country.capital}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Nationality</label>
+            <div class="col-sm-10">
+                <input name="nationality" th:value="${country.nationality}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Continent</label>
+            <div class="col-sm-10">
+                <input name="continent" th:value="${country.continent}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Country Code</label>
+            <div class="col-sm-10">
+                <input name="code" th:value="${country.code}" readonly type="text" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+
+            <div class="col-sm-10">
+                <button type="submit" disabled class="btn btn-success">Save</button>
+                <a href="/countries" class="btn btn-warning">Exit</a>
+            </div>
+        </div>
+
+    </form><!-- End General Form Elements -->
+
+
+
+
+    </div>
+
+
+    <div class="container" style="width: 70%">
+
+
+        <header>
+            <h3 align="center" >List of State in Country <div th:text="${country.description}"></div> </h3>
+
+
+        </header>
+        <table class="table table-borderless datatable">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Capital</th>
+                <th scope="col">Code</th>
+                <th scope="col">Details</th>
+<!--                <th scope="col">Action</th>-->
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="state: ${country.states}">
+
+                <td th:text="${state.name}"></td>
+                <td th:text="${state.capital}"></td>
+                <td th:text="${state.code}"></td>
+                <td th:text="${state.details}"></td>
+                <td>
+<!--                    <div class="btn-group">-->
+<!--                        <a class="btn btn-primary" th:href="@{'/parameters/stateDetails/'+${state.id}}">+</a>-->
+<!--                        <a class="btn btn-success"-->
+<!--                           th:href="@{'/parameters/state/Edit/'+${state.id}}">√</a>-->
+<!--                        <a class="btn btn-danger"-->
+<!--                           onclick="return confirm('Are you sure you want to delete this record?')"-->
+<!--                           th:href="@{'/parameters/states/delete/'+${state.id}}" >×</a>-->
+
+<!--                    </div>-->
+
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+</body>
+</html>

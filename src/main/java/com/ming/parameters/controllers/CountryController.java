@@ -1,0 +1,74 @@
+package com.ming.parameters.controllers;
+
+import com.ming.parameters.services.CountryService;
+import com.ming.parameters.models.Country;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@Controller
+public class CountryController {
+    @Autowired
+    private CountryService countryService;
+
+    @GetMapping("/countries")
+    // @ResponseBody
+    public String getAll(Model model) {
+
+        List<Country> countries = countryService.getAll();
+        model.addAttribute("countries", countries);
+
+        return "parameters/countries";
+    }
+//get country by id.
+    @GetMapping("/parameters/country/{id}")
+    @ResponseBody
+    public Country getCountry(@PathVariable Integer id){
+        return countryService.getById(id);
+    }
+
+    @GetMapping("/countryAdd")
+    public String addCountry(){
+
+        return "parameters/countryAdd";
+    }
+    @GetMapping("/countryEdit/{id}")
+    public String editCountry(@PathVariable Integer id,Model model){
+        Country country = countryService.getById(id);
+        model.addAttribute("country",country);
+
+        return "parameters/countryEdit";
+    }
+    @GetMapping("/countryDetails/{id}")
+    public String detailsCountry(@PathVariable Integer id,Model model){
+        Country country = countryService.getById(id);
+        model.addAttribute("country",country);
+
+        return "parameters/countryDetails";
+    }
+
+    @PostMapping("/countries")
+    public String save(Country country){
+        countryService.save(country);
+        return "redirect:/countries";
+    }
+
+    @RequestMapping(value = "/countries/delete/{id}",method = {RequestMethod.GET,RequestMethod.DELETE})
+    public String delete(@PathVariable Integer id){
+        countryService.delete(id);
+        return "redirect:/countries";
+
+    }
+
+    @RequestMapping(value = "/countries/update/{id}",method = {RequestMethod.GET,RequestMethod.PUT})
+    public String update(Country country){
+        countryService.save(country);
+        return "redirect:/countries";
+
+    }
+
+
+}

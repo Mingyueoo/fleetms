@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+    <!-- General Form Elements -->
+    <div class="container" style="width: 70%">
+
+
+    <header >
+        <h3 align="center">Client Record Details</h3>
+    </header>
+    <form  method="put">
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input name="name" th:value="${supplier.name}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+                <input name="city" th:value="${supplier.city}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+                <input name="address" th:value="${supplier.address}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Phone</label>
+            <div class="col-sm-10">
+                <input name="phone" th:value="${supplier.phone}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Mobile</label>
+            <div class="col-sm-10">
+                <input name="mobile" th:value="${supplier.mobile}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">Website</label>
+            <div class="col-sm-10">
+                <input name="website" th:value="${supplier.website}" readonly type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label  class="col-sm-2 col-form-label">email</label>
+            <div class="col-sm-10">
+                <input name="email" th:value="${supplier.email}" readonly type="text" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+
+            <div class="col-sm-10">
+                <button type="submit" disabled class="btn btn-success">Save</button>
+                <a href="/parameters/suppliers" class="btn btn-warning">Exit</a>
+            </div>
+        </div>
+
+    </form><!-- End General Form Elements -->
+    </div>
+</div>
+</body>
+</html>
